@@ -1,5 +1,6 @@
 package behavioral.iterator;
 
+import org.junit.Before;
 import org.junit.Test;
 
 /**
@@ -8,11 +9,17 @@ import org.junit.Test;
  */
 public class IteratorTest {
 
+    private Iterator iterator;
+
+    @Before
+    public void setUp() {
+        final String[] names = {"Robert", "John", "Julie", "Lora"};
+        iterator = new IteratorImpl<>(names);
+    }
+
     @Test
     public void test() {
-        NameRepository namesRepository = new NameRepository();
-
-        for (Iterator iterator = namesRepository.getIterator(); iterator.hasNext(); ) {
+        while (iterator.hasNext()) {
             String name = (String) iterator.next();
             System.out.println("Name : " + name);
         }
