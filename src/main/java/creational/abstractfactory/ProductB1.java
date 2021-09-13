@@ -1,8 +1,5 @@
 package creational.abstractfactory;
 
-/**
- * Created by Andrei_Punko on 2/5/2017.
- */
 public class ProductB1 implements AbstractProductB {
 
     @Override

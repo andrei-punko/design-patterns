@@ -1,9 +1,11 @@
 package creational.singleton.lazy.doublecheckedlockingandvolatile;
 
 /**
+ * <pre>
  * + Ленивая инициализация
  * + Высокая производительность
  * - Поддерживается только с JDK 1.5
+ * </pre>
  * <p>
  * Почему не работает без volatile?
  * Проблема идиомы Double Checked Lock заключается в модели памяти Java, точнее в порядке создания объектов.
@@ -17,7 +19,7 @@ package creational.singleton.lazy.doublecheckedlockingandvolatile;
  * Таким образом, между вторым и третьим этапом возможна ситуация, при которой другой поток может получить
  * и начать использовать (на основании условия, что указатель не нулевой) не полностью сконструированный объект.
  * На самом деле, эта проблема была частично решена в JDK 1.5, однако авторы JSR-133 рекомендуют использовать volatile
- * для Double Cheсked Lock.
+ * для Double Checked Lock.
  */
 public class Singleton {
 
