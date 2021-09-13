@@ -1,5 +1,6 @@
 
 ## Design patterns
+
 ![Java CI with Maven](https://github.com/andrei-punko/design-patterns/workflows/Java%20CI%20with%20Maven/badge.svg)
 
 **Based on:**
@@ -19,10 +20,10 @@ We'll also discuss another category of design pattern: J2EE design patterns.
 
 ---
 
-#### Creational patterns
+### Creational patterns
 
 These design patterns provide a way to create objects while hiding the creation logic, rather than instantiating objects
-directly using new operator. This gives program more flexibility in deciding which objects need to be created for a 
+directly using new operator. It gives program more flexibility in deciding which objects need to be created for a 
 given use case.
 
 ---
@@ -44,7 +45,7 @@ instantiate the object of the class.
 
 Контролируемый доступ к единственному экземпляру
 
-BUILDER pattern builds a complex object using simple objects and using a step by step approach. This builder is 
+BUILDER pattern builds a complex object using simple objects and using a step-by-step approach. This builder is 
 independent of other objects.
 
 Отделяет конструирование сложного объекта от его представления, так что в результате одного и того же процесса 
@@ -60,7 +61,7 @@ database calls.
 
 ---
 
-#### Structural Patterns
+### Structural Patterns
 
 These design patterns concern class and object composition. Concept of inheritance is used to compose interfaces and 
 define ways to compose objects to obtain new functionalities.
@@ -69,7 +70,7 @@ ADAPTER pattern works as a bridge between two incompatible interfaces. This type
 structural pattern as this pattern combines the capability of two independent interfaces.
 This pattern involves a single class which is responsible to join functionalities of independent or incompatible 
 interfaces. A real life example could be a case of card reader which acts as an adapter between memory card and a 
-laptop. You plugin the memory card into card reader and card reader into the laptop so that memory card can be read via 
+laptop. You plug in the memory card into card reader and card reader into the laptop so that memory card can be read via 
 laptop.
 
 BRIDGE is used when we need to decouple an abstraction from its implementation so that the two can vary independently.
@@ -110,7 +111,7 @@ In proxy pattern, we create object having original object to interface its funct
 
 ---
 
-#### Behavioral Patterns
+### Behavioral Patterns
 
 These design patterns are specifically concerned with communication between objects.
 
@@ -140,7 +141,7 @@ Memento pattern uses three actor classes. Memento contains state of an object to
 stores states in Memento objects and Caretaker object is responsible to restore object state from Memento.
 
 OBSERVER pattern is used when there is one-to-many relationship between objects such as if one object is modified, its 
-depenedent objects are to be notified automatically.
+dependent objects are to be notified automatically.
 Observer pattern uses three actor classes. Subject, Observer and Client. Subject is an object having methods to attach 
 and detach observers to a client object.
 
@@ -152,8 +153,8 @@ In NULL OBJECT pattern, a null object replaces check of NULL object instance. In
 value, Null Object reflects a do nothing relationship. Such Null object can also be used to provide default behaviour 
 in case data is not available.
 In Null Object pattern, we create an abstract class specifying various operations to be done, concrete classes 
-extending this class and a null object class providing do nothing implemention of this class and will be used 
-seemlessly where we need to check null value.
+extending this class and a null object class providing do nothing implementation of this class and will be used 
+seamlessly where we need to check null value.
 
 In STRATEGY pattern, a class behavior or its algorithm can be changed at run time.
 In Strategy pattern, we create objects which represent various strategies and a context object whose behavior varies as 
@@ -171,7 +172,7 @@ element object.
 
 ---
 
-#### J2EE Patterns
+### J2EE Patterns
 
 These design patterns are specifically concerned with the presentation tier. These patterns are identified by Sun Java 
 Center.
@@ -186,7 +187,7 @@ whenever data changes. It keeps view and model separate.
 
 BUSINESS DELEGATE pattern is used to decouple presentation tier and business tier. It is basically use to reduce 
 communication or remote lookup functionality to business tier code in presentation tier code. In business tier we have 
-following entities:
+the following entities:
 
 * Client - Presentation tier code may be JSP, servlet or UI java code.
 * Business Delegate - A single entry point class for client entities to provide access to Business Service methods.
