@@ -2,6 +2,7 @@
 ## Design patterns
 
 ![Java CI with Maven](https://github.com/andrei-punko/design-patterns/workflows/Java%20CI%20with%20Maven/badge.svg)
+[![Coverage](.github/badges/jacoco.svg)](jacoco.svg)
 
 **Based on:**
 
