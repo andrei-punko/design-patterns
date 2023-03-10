@@ -21,8 +21,8 @@ are 23 design patterns which can be classified in three categories: Creational, 
 We'll also discuss another category of design pattern: J2EE design patterns.
 
 ### Prerequisites:
-- JDK 11
 - Maven 3
+- JDK 17
 
 ---
 
