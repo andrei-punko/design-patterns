@@ -22,7 +22,7 @@ We'll also discuss another category of design pattern: J2EE design patterns.
 
 ### Prerequisites:
 - Maven 3
-- JDK 17
+- JDK 21
 
 ---
 
