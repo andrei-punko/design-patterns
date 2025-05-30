@@ -6,7 +6,7 @@
 
 ## Prerequisites
 
-- Maven 3
+- Maven 3 (embedded in the project)
 - JDK 21
 
 ## History
@@ -21,7 +21,7 @@ are 23 design patterns which can be classified in three categories: Creational, 
 
 We'll also discuss another category of design pattern: J2EE design patterns.
 
-**Based on:**
+Based on:
 
 https://www.tutorialspoint.com/design_pattern/design_pattern_overview.htm<br/>
 https://ru.wikipedia.org/wiki/Design_Patterns
@@ -80,8 +80,8 @@ design pattern comes under
 structural pattern as this pattern combines the capability of two independent interfaces.
 This pattern involves a single class which is responsible to join functionalities of independent or incompatible
 interfaces. A real life example could be a case of card reader which acts as an adapter between memory card and a
-laptop. You plug in the memory card into card reader and card reader into the laptop so that memory card can be read via
-laptop.
+laptop. You plug in the memory card into card reader and card reader into the laptop so that memory card can be read
+via laptop.
 
 [BRIDGE](src/main/java/structural/bridge) is used when we need to decouple an abstraction from its implementation so
 that the two can vary independently.
@@ -234,9 +234,10 @@ business services. Following are the participants in Data Access Object Pattern.
 * Model Object or Value Object - This object is simple POJO containing get/set methods to store data retrieved using DAO
   class.
 
-FRONT CONTROLLER design pattern is used to provide a centralized request handling mechanism so that all requests will be
-handled by a single handler. This handler can do the authentication/ authorization/ logging or tracking of request and
-then pass the requests to corresponding handlers. Following are the entities of this type of design pattern:
+[FRONT CONTROLLER](src/main/java/structural/frontcontroller) design pattern is used to provide a centralized request
+handling mechanism so that all requests will be handled by a single handler. This handler can do the
+authentication/authorization/logging or tracking of request and then pass the requests to corresponding handlers.
+Following are the entities of this type of design pattern:
 
 * Front Controller - Single handler for all kinds of requests coming to the application (either web based/ desktop
   based)
@@ -246,8 +247,8 @@ then pass the requests to corresponding handlers. Following are the entities of 
 
 INTERCEPTING FILTER design pattern is used when we want to do some pre-processing / post-processing with request or
 response of the application. Filters are defined and applied on the request before passing the request to actual target
-application. Filters can do the authentication/ authorization/ logging or tracking of request and then pass the requests
-to corresponding handlers. Following are the entities of this type of design pattern:
+application. Filters can do the authentication / authorization / logging or tracking of request and then pass the 
+requests to corresponding handlers. Following are the entities of this type of design pattern:
 
 * Filter - Filter which will performs certain task prior or after execution of request by request handler
 * Filter Chain - Filter Chain carries multiple filters and help to execute them in defined order on target
