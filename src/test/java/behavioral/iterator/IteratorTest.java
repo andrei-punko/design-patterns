@@ -1,5 +1,10 @@
 package behavioral.iterator;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertThrows;
+
+import java.util.NoSuchElementException;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -9,19 +14,29 @@ import org.junit.Test;
  */
 public class IteratorTest {
 
-    private Iterator iterator;
+    private static final String[] NAMES = {"Robert", "John", "Julie", "Lora"};
+
+    private Iterator<String> iterator;
 
     @Before
     public void setUp() {
-        final String[] names = {"Robert", "John", "Julie", "Lora"};
-        iterator = new IteratorImpl<>(names);
+        iterator = new IteratorImpl<>(NAMES);
     }
 
     @Test
-    public void test() {
-        while (iterator.hasNext()) {
-            String name = (String) iterator.next();
-            System.out.println("Name : " + name);
+    public void shouldIterateOverAllElementsInOrder() {
+        for (String expectedName : NAMES) {
+            assertEquals(expectedName, iterator.next());
         }
+        assertFalse(iterator.hasNext());
+    }
+
+    @Test
+    public void shouldThrowWhenNoMoreElements() {
+        while (iterator.hasNext()) {
+            iterator.next();
+        }
+
+        assertThrows(NoSuchElementException.class, iterator::next);
     }
 }

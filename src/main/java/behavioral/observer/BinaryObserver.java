@@ -3,8 +3,7 @@ package behavioral.observer;
 public class BinaryObserver extends Observer {
 
     public BinaryObserver(Subject subject) {
-        this.subject = subject;
-        this.subject.attach(this);
+        super(subject);
     }
 
     @Override

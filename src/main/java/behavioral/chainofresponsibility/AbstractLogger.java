@@ -2,9 +2,9 @@ package behavioral.chainofresponsibility;
 
 public abstract class AbstractLogger {
 
-    public static int INFO = 1;
-    public static int DEBUG = 2;
-    public static int ERROR = 3;
+    public static final int INFO = 1;
+    public static final int DEBUG = 2;
+    public static final int ERROR = 3;
 
     protected int level;
 

@@ -20,4 +20,16 @@ public class Pizza {
     public void setTopping(String topping) {
         this.topping = topping;
     }
+
+    public String getDough() {
+        return dough;
+    }
+
+    public String getSauce() {
+        return sauce;
+    }
+
+    public String getTopping() {
+        return topping;
+    }
 }

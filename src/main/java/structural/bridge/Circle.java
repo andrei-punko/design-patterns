@@ -8,9 +8,9 @@ public class Circle extends Shape {
 
     public Circle(int x, int y, int radius, Drawer drawer) {
         super(drawer);
-        setX(x);
-        setY(y);
-        setRadius(radius);
+        this.x = x;
+        this.y = y;
+        this.radius = radius;
     }
 
     @Override

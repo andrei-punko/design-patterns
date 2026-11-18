@@ -1,5 +1,7 @@
 package creational.builder;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
 
 /**
@@ -9,12 +11,28 @@ import org.junit.Test;
 public class BuilderExampleTest {
 
     @Test
-    public void test() {
+    public void shouldBuildHawaiianPizza() {
         Waiter waiter = new Waiter();
-        PizzaBuilder hawaiianPizzaBuilder = new HawaiianPizzaBuilder();
-        waiter.setPizzaBuilder(hawaiianPizzaBuilder);
+        waiter.setPizzaBuilder(new HawaiianPizzaBuilder());
         waiter.constructPizza();
 
         Pizza pizza = waiter.getPizza();
+
+        assertEquals("cross", pizza.getDough());
+        assertEquals("mild", pizza.getSauce());
+        assertEquals("ham+pineapple", pizza.getTopping());
+    }
+
+    @Test
+    public void shouldBuildSpicyPizzaWithSameProcess() {
+        Waiter waiter = new Waiter();
+        waiter.setPizzaBuilder(new SpicyPizzaBuilder());
+        waiter.constructPizza();
+
+        Pizza pizza = waiter.getPizza();
+
+        assertEquals("pan baked", pizza.getDough());
+        assertEquals("hot", pizza.getSauce());
+        assertEquals("pepperoni+salami", pizza.getTopping());
     }
 }

@@ -1,5 +1,12 @@
 package structural.flyweight;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNotSame;
+import static org.junit.Assert.assertSame;
+
+import java.util.HashSet;
+import java.util.Set;
 import org.junit.Test;
 
 /**
@@ -7,21 +14,41 @@ import org.junit.Test;
  */
 public class FlyWeightTest {
 
+    private static final String[] COLORS = {"Red", "Green", "Blue", "White", "Black"};
+
     @Test
-    public void test() {
+    public void shouldDrawCirclesWithDifferentExtrinsicState() {
         for (int i = 0; i < 20; ++i) {
-            Circle circle = (Circle) ShapeFactory.getCircle(getRandomColor());
-            circle.setX(getRandomX());
-            circle.setY(getRandomY());
-            circle.setRadius(100);
-            circle.draw();
+            Shape circle = ShapeFactory.getCircle(getRandomColor());
+            circle.draw(getRandomX(), getRandomY(), 100);
         }
     }
 
-    private static final String colors[] = {"Red", "Green", "Blue", "White", "Black"};
+    @Test
+    public void shouldReuseFlyweightForSameColor() {
+        Shape first = ShapeFactory.getCircle("Red");
+        Shape second = ShapeFactory.getCircle("Red");
+
+        assertNotNull(first);
+        assertSame("Flyweight should be reused for the same color", first, second);
+    }
+
+    @Test
+    public void shouldCreateSingleFlyweightPerColor() {
+        Set<Shape> circles = new HashSet<>();
+        for (String color : COLORS) {
+            circles.add(ShapeFactory.getCircle(color));
+        }
+
+        assertEquals(COLORS.length, circles.size());
+        assertNotSame(
+                "Different colors must use different flyweights",
+                ShapeFactory.getCircle("Red"),
+                ShapeFactory.getCircle("Blue"));
+    }
 
     private static String getRandomColor() {
-        return colors[(int) (Math.random() * colors.length)];
+        return COLORS[(int) (Math.random() * COLORS.length)];
     }
 
     private static int getRandomX() {

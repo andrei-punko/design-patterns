@@ -1,5 +1,9 @@
 package creational.prototype;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotSame;
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Test;
 
 /**
@@ -13,12 +17,15 @@ import org.junit.Test;
 public class PrototypeTest {
 
     @Test
-    public void test() throws CloneNotSupportedException {
-        Cookie tempCookie = null;
-        Cookie prot = new CoconutCookie();
-        CookieMachine cm = new CookieMachine(prot);
-        for (int i = 0; i < 100; i++) {
-            tempCookie = cm.makeCookie();
-        }
+    public void shouldCreateIndependentCopyOfPrototype() throws CloneNotSupportedException {
+        Cookie prototype = new CoconutCookie();
+        prototype.weight = 150;
+        CookieMachine machine = new CookieMachine(prototype);
+
+        Cookie copy = machine.makeCookie();
+
+        assertNotSame("Clone must be a new object", prototype, copy);
+        assertEquals(prototype.weight, copy.weight);
+        assertTrue("Clone must keep the concrete prototype type", copy instanceof CoconutCookie);
     }
 }

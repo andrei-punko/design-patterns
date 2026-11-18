@@ -1,5 +1,7 @@
 package behavioral.strategy;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
 
 /**
@@ -9,14 +11,9 @@ import org.junit.Test;
 public class StrategyTest {
 
     @Test
-    public void test() {
-        Context context = new Context(new OperationAdd());
-        System.out.println("10 + 5 = " + context.executeStrategy(10, 5));
-
-        context = new Context(new OperationSubtract());
-        System.out.println("10 - 5 = " + context.executeStrategy(10, 5));
-
-        context = new Context(new OperationMultiply());
-        System.out.println("10 * 5 = " + context.executeStrategy(10, 5));
+    public void shouldApplySelectedStrategy() {
+        assertEquals(15, new Context(new OperationAdd()).executeStrategy(10, 5));
+        assertEquals(5, new Context(new OperationSubtract()).executeStrategy(10, 5));
+        assertEquals(50, new Context(new OperationMultiply()).executeStrategy(10, 5));
     }
 }

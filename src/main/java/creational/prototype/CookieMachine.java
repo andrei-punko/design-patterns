@@ -12,6 +12,6 @@ public class CookieMachine {
     }
 
     public Cookie makeCookie() throws CloneNotSupportedException {
-        return (Cookie) this.cookie.clone();
+        return this.cookie.clone();
     }
 }

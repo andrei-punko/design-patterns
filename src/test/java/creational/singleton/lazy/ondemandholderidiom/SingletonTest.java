@@ -1,11 +1,18 @@
 package creational.singleton.lazy.ondemandholderidiom;
 
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertSame;
+
 import org.junit.Test;
 
 public class SingletonTest {
 
     @Test
-    public void getInstance() {
-        Singleton instance = Singleton.getInstance();
+    public void shouldReturnSameInstance() {
+        Singleton first = Singleton.getInstance();
+        Singleton second = Singleton.getInstance();
+
+        assertNotNull(first);
+        assertSame("Singleton must return the same instance", first, second);
     }
 }

@@ -1,6 +1,8 @@
 package behavioral.iterator;
 
-public class IteratorImpl<T> implements Iterator {
+import java.util.NoSuchElementException;
+
+public class IteratorImpl<T> implements Iterator<T> {
 
     private final T[] arr;
     private int index = 0;
@@ -11,17 +13,14 @@ public class IteratorImpl<T> implements Iterator {
 
     @Override
     public boolean hasNext() {
-        if (index < arr.length) {
-            return true;
-        }
-        return false;
+        return index < arr.length;
     }
 
     @Override
-    public Object next() {
-        if (this.hasNext()) {
-            return arr[index++];
+    public T next() {
+        if (!hasNext()) {
+            throw new NoSuchElementException();
         }
-        return null;
+        return arr[index++];
     }
 }

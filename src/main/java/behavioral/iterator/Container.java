@@ -1,6 +1,6 @@
 package behavioral.iterator;
 
-public interface Container {
+public interface Container<T> {
 
-    Iterator getIterator();
+    Iterator<T> getIterator();
 }

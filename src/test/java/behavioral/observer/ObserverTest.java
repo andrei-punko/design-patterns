@@ -1,5 +1,7 @@
 package behavioral.observer;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
 
 /**
@@ -12,13 +14,18 @@ public class ObserverTest {
     public void test() {
         Subject subject = new Subject();
 
-        new HexObserver(subject);
-        new OctalObserver(subject);
-        new BinaryObserver(subject);
+        // Observers are registered explicitly: passing `this` out of a constructor
+        // would let a partially initialized object escape.
+        subject.attach(new HexObserver(subject));
+        subject.attach(new OctalObserver(subject));
+        subject.attach(new BinaryObserver(subject));
 
         System.out.println("First state change: 15");
         subject.setState(15);
+        assertEquals(15, subject.getState());
+
         System.out.println("Second state change: 10");
         subject.setState(10);
+        assertEquals(10, subject.getState());
     }
 }
