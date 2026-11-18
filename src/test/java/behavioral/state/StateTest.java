@@ -9,7 +9,7 @@ import org.junit.Test;
 public class StateTest {
 
     @Test
-    public void doAction() {
+    public void shouldChangeStateWhenActionApplied() {
         Context context = new Context();
 
         StartState startState = new StartState();

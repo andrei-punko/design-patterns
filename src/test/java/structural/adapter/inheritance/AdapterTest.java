@@ -14,7 +14,7 @@ import org.junit.Test;
 public class AdapterTest {
 
     @Test
-    public void test() {
+    public void shouldAdaptPlumberMethodsToChief() {
         Chief ch = new ChiefAdapter();
         Object dish = ch.makeBreakfast();
         eat(dish);

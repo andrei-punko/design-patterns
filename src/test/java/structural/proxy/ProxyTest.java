@@ -9,7 +9,7 @@ import org.junit.Test;
 public class ProxyTest {
 
     @Test
-    public void test() {
+    public void shouldLoadRealImageOnlyOnce() {
         Image image = new ProxyImage("test_10mb.jpg");
 
         // image will be loaded from disk

@@ -9,7 +9,7 @@ import org.junit.Test;
 public class MediatorTest {
 
     @Test
-    public void test() {
+    public void shouldRouteMessagesThroughMediator() {
         User robert = new User("Robert");
         User john = new User("John");
 

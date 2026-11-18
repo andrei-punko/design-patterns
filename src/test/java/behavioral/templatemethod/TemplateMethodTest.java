@@ -9,7 +9,7 @@ import org.junit.Test;
 public class TemplateMethodTest {
 
     @Test
-    public void test() {
+    public void shouldRunTemplateForAllGames() {
         Game game = new Cricket();
         game.play();
         System.out.println();

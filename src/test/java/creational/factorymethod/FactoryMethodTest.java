@@ -22,7 +22,7 @@ import org.junit.Test;
 public class FactoryMethodTest {
 
     @Test
-    public void test() {
+    public void shouldCreateProductViaFactoryMethod() {
         Creator[] creators = {new ConcreteCreatorA(), new ConcreteCreatorB()};
         Object[] expectedClasses = {ConcreteProductA.class, ConcreteProductB.class};
 

@@ -9,7 +9,7 @@ import org.junit.Test;
 public class ServantTest {
 
     @Test
-    public void test() {
+    public void shouldMoveServicedObjects() {
         Ellipse ellipse = new Ellipse();
         ellipse.setPosition(new Position(0, 0));
 

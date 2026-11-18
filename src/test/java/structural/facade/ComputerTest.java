@@ -18,7 +18,7 @@ import org.junit.Test;
 public class ComputerTest {
 
     @Test
-    public void test() {
+    public void shouldStartComputerThroughFacade() {
         Computer computer = new Computer();
         computer.startComputer();
     }

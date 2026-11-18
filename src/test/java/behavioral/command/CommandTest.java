@@ -8,7 +8,7 @@ import org.junit.Test;
 public class CommandTest {
 
     @Test
-    public void test() {
+    public void shouldExecuteAllOrders() {
         Stock abcStock = new Stock();
 
         BuyStock buyStockOrder = new BuyStock(abcStock);

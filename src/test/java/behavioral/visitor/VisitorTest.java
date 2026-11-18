@@ -9,7 +9,7 @@ import org.junit.Test;
 public class VisitorTest {
 
     @Test
-    public void test() {
+    public void shouldVisitAllComputerParts() {
         ComputerPart computer = new Computer();
         computer.accept(new ComputerPartDisplayVisitor());
     }

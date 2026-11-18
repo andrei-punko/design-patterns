@@ -1,13 +1,17 @@
 package behavioral.nullobject;
 
+import java.util.List;
+
 public class CustomerFactory {
 
-    public static final String[] names = {"Rob", "Joe", "Julie"};
+    private static final List<String> NAMES = List.of("Rob", "Joe", "Julie");
+
+    private CustomerFactory() {
+    }
 
     public static AbstractCustomer getCustomer(String name) {
-
-        for (int i = 0; i < names.length; i++) {
-            if (names[i].equalsIgnoreCase(name)) {
+        for (String candidate : NAMES) {
+            if (candidate.equalsIgnoreCase(name)) {
                 return new RealCustomer(name);
             }
         }

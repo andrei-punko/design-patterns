@@ -9,7 +9,7 @@ import org.junit.Test;
 public class CompositeTest {
 
     @Test
-    public void test() {
+    public void shouldPrintCompositeTree() {
         Ellipse ellipse1 = new Ellipse();
         Ellipse ellipse2 = new Ellipse();
         Ellipse ellipse3 = new Ellipse();

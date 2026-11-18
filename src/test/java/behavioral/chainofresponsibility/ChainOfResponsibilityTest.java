@@ -12,7 +12,7 @@ import org.junit.Test;
 public class ChainOfResponsibilityTest {
 
     @Test
-    public void test() {
+    public void shouldPassMessageThroughLoggerChain() {
         AbstractLogger loggerChain = getChainOfLoggers();
 
         loggerChain.logMessage(AbstractLogger.INFO, "This is an information.");

@@ -9,7 +9,7 @@ import org.junit.Test;
 public class InterpreterTest {
 
     @Test
-    public void test() {
+    public void shouldInterpretExpressions() {
         Expression isMale = getMaleExpression();
         Expression isMarriedWoman = getMarriedWomanExpression();
 

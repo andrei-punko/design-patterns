@@ -12,8 +12,8 @@ public class MoveServant {
 
     public void moveBy(Movable serviced, int dx, int dy) {
         System.out.println("Object " + serviced + " moved by (" + dx + ", " + dy + ")");
-        dx += serviced.getPosition().xPosition;
-        dy += serviced.getPosition().yPosition;
+        dx += serviced.getPosition().getXPosition();
+        dy += serviced.getPosition().getYPosition();
         serviced.setPosition(new Position(dx, dy));
         System.out.println("Object " + serviced + " is here");
     }

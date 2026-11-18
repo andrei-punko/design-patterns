@@ -13,22 +13,22 @@ public class MementoTest {
     @Test
     public void shouldRestoreSavedStates() {
         Originator originator = new Originator();
-        CareTaker careTaker = new CareTaker();
+        Caretaker caretaker = new Caretaker();
 
         originator.setState("State #1");
         originator.setState("State #2");
-        careTaker.add(originator.saveStateToMemento());
+        caretaker.add(originator.saveStateToMemento());
 
         originator.setState("State #3");
-        careTaker.add(originator.saveStateToMemento());
+        caretaker.add(originator.saveStateToMemento());
 
         originator.setState("State #4");
         assertEquals("State #4", originator.getState());
 
-        originator.getStateFromMemento(careTaker.get(0));
+        originator.getStateFromMemento(caretaker.get(0));
         assertEquals("State #2", originator.getState());
 
-        originator.getStateFromMemento(careTaker.get(1));
+        originator.getStateFromMemento(caretaker.get(1));
         assertEquals("State #3", originator.getState());
     }
 }

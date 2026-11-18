@@ -2,8 +2,8 @@ package structural.frontcontroller;
 
 public class Dispatcher {
 
-    private StudentView studentView;
-    private HomeView homeView;
+    private final View studentView;
+    private final View homeView;
 
     public Dispatcher() {
         studentView = new StudentView();

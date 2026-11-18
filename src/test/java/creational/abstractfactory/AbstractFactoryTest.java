@@ -9,7 +9,7 @@ import org.junit.Test;
 public class AbstractFactoryTest {
 
     @Test
-    public void test() {
+    public void shouldCreateCompatibleProductFamilies() {
         AbstractFactory factory1 = new ConcreteFactory1();
         Client client1 = new Client(factory1);
         client1.execute();

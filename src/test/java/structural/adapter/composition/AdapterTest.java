@@ -1,5 +1,7 @@
 package structural.adapter.composition;
 
+import static org.junit.Assert.assertNotNull;
+
 import org.junit.Test;
 
 /**
@@ -14,8 +16,9 @@ import org.junit.Test;
 public class AdapterTest {
 
     @Test
-    public void makeBreakfast() throws Exception {
+    public void shouldAdaptPlumberMethodToChief() {
         Chief chief = new ChiefAdapter();
-        Object key = chief.makeDinner();
+
+        assertNotNull(chief.makeDinner());
     }
 }

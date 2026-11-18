@@ -3,7 +3,7 @@ package behavioral.memento;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CareTaker {
+public class Caretaker {
 
     private List<Memento> mementoList = new ArrayList<Memento>();
 

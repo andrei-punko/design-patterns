@@ -11,7 +11,7 @@ import org.junit.Test;
 public class ObserverTest {
 
     @Test
-    public void test() {
+    public void shouldNotifyObserversOnStateChange() {
         Subject subject = new Subject();
 
         // Observers are registered explicitly: passing `this` out of a constructor
@@ -27,5 +27,33 @@ public class ObserverTest {
         System.out.println("Second state change: 10");
         subject.setState(10);
         assertEquals(10, subject.getState());
+    }
+
+    @Test
+    public void shouldStopNotifyingDetachedObserver() {
+        Subject subject = new Subject();
+        CountingObserver observer = new CountingObserver(subject);
+        subject.attach(observer);
+
+        subject.setState(1);
+        assertEquals(1, observer.updates);
+
+        subject.detach(observer);
+        subject.setState(2);
+        assertEquals("Detached observer must not be notified", 1, observer.updates);
+    }
+
+    private static class CountingObserver extends Observer {
+
+        private int updates;
+
+        CountingObserver(Subject subject) {
+            super(subject);
+        }
+
+        @Override
+        public void update() {
+            updates++;
+        }
     }
 }

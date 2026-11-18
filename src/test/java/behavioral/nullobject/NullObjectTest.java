@@ -9,7 +9,7 @@ import org.junit.Test;
 public class NullObjectTest {
 
     @Test
-    public void test() {
+    public void shouldReturnNullObjectForUnknownCustomer() {
         AbstractCustomer customer1 = CustomerFactory.getCustomer("Rob");
         AbstractCustomer customer2 = CustomerFactory.getCustomer("Bob");
         AbstractCustomer customer3 = CustomerFactory.getCustomer("Julie");

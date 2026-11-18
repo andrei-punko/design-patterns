@@ -94,6 +94,8 @@ FILTER pattern or CRITERIA pattern is a design pattern that enables developers t
 different criteria and chaining them in a decoupled way through logical operations. This type of design pattern comes
 under structural pattern as this pattern combines multiple criteria to obtain single criteria.
 
+> Описание без реализации: пакет `src/main/java/structural/filter` в репозитории отсутствует.
+
 [COMPOSITE](src/main/java/structural/composite) pattern is used where we need to treat a group of objects in similar way
 as a single object. Composite
 pattern composes objects in term of a tree structure to represent part as well as whole hierarchy. This type of design
@@ -156,6 +158,9 @@ supports easy maintenance of the code by loose coupling.
 Memento pattern uses three actor classes. Memento contains state of an object to be restored. Originator creates and
 stores states in Memento objects and Caretaker object is responsible to restore object state from Memento.
 
+[SERVANT](src/main/java/behavioral/servant) pattern defines an object used to offer some functionality to a group of
+classes without defining that functionality in each of them.
+
 [OBSERVER](src/main/java/behavioral/observer) pattern is used when there is one-to-many relationship between objects
 such as if one object is modified, its
 dependent objects are to be notified automatically.
@@ -195,6 +200,9 @@ element object.
 These design patterns are specifically concerned with the presentation tier. These patterns are identified by Sun Java
 Center.
 
+> Описание без реализации: все паттерны этого раздела, кроме FRONT CONTROLLER, приведены только как описание — кода
+> для них в репозитории нет.
+
 MVC pattern stands for Model-View-Controller Pattern. This pattern is used to separate application's concerns.
 
 * Model - Model represents an object or JAVA POJO carrying data. It can also have logic to update controller if its data
@@ -202,6 +210,8 @@ MVC pattern stands for Model-View-Controller Pattern. This pattern is used to se
 * View - View represents the visualization of the data that model contains.
 * Controller - Controller acts on both model and view. It controls the data flow into model object and updates the view
   whenever data changes. It keeps view and model separate.
+
+_Описание без реализации._
 
 BUSINESS DELEGATE pattern is used to decouple presentation tier and business tier. It is basically use to reduce
 communication or remote lookup functionality to business tier code in presentation tier code. In business tier we have
@@ -214,6 +224,8 @@ the following entities:
 * Business Service - Business Service interface. Concrete classes implement this business service to provide actual
   business implementation logic.
 
+_Описание без реализации._
+
 COMPOSITE ENTITY pattern is used in EJB persistence mechanism. A Composite entity is an EJB entity bean which represents
 a graph of objects. When a composite entity is updated, internally dependent objects beans get updated automatically as
 being managed by EJB entity bean. Following are the participants in Composite Entity Bean:
@@ -225,6 +237,8 @@ being managed by EJB entity bean. Following are the participants in Composite En
 * Dependent Object - Dependent object is an object which depends on coarse grained object for its persistence lifecycle
 * Strategies - Strategies represents how to implement a Composite Entity
 
+_Описание без реализации._
+
 DATA ACCESS OBJECT Pattern or DAO pattern is used to separate low level data accessing API or operations from high level
 business services. Following are the participants in Data Access Object Pattern.
 
@@ -233,6 +247,8 @@ business services. Following are the participants in Data Access Object Pattern.
   a data source which can be database / xml or any other storage mechanism.
 * Model Object or Value Object - This object is simple POJO containing get/set methods to store data retrieved using DAO
   class.
+
+_Описание без реализации._
 
 [FRONT CONTROLLER](src/main/java/structural/frontcontroller) design pattern is used to provide a centralized request
 handling mechanism so that all requests will be handled by a single handler. This handler can do the
@@ -256,6 +272,8 @@ requests to corresponding handlers. Following are the entities of this type of d
 * Filter Manager - Filter Manager manages the filters and Filter Chain
 * Client - Client is the object who sends request to the Target object
 
+_Описание без реализации._
+
 SERVICE LOCATOR design pattern is used when we want to locate various services using JNDI lookup. Considering high cost
 of looking up JNDI for a service, Service Locator pattern makes use of caching technique. For the first time a service
 is required, Service Locator looks up in JNDI and caches the service object. Further lookup or same service via Service
@@ -268,6 +286,8 @@ of this type of design pattern.
 * Cache - Cache to store references of services to reuse them
 * Client - Client is the object that invokes the services via ServiceLocator
 
+_Описание без реализации._
+
 TRANSFER OBJECT pattern is used when we want to pass data with multiple attributes in one shot from client to server.
 Transfer object is also known as Value Object. Transfer Object is a simple POJO class having getter/setter methods and
 is serializable so that it can be transferred over the network. It does not have any behavior. Server Side business
@@ -278,3 +298,5 @@ in database in one shot. Following are the entities of this type of design patte
 * Business Object - Business Service fills the Transfer Object with data
 * Transfer Object - Simple POJO having methods to set/get attributes only
 * Client - Client either requests or sends the Transfer Object to Business Object
+
+_Описание без реализации._
