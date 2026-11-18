@@ -1,6 +1,6 @@
 package behavioral.iterator;
 
-public interface Iterator<T> {
+public interface CustomIterator<T> {
 
     boolean hasNext();
 

@@ -19,8 +19,8 @@ public class FlyWeightTest {
     @Test
     public void shouldDrawCirclesWithDifferentExtrinsicState() {
         for (int i = 0; i < 20; ++i) {
-            Shape circle = ShapeFactory.getCircle(getRandomColor());
-            circle.draw(getRandomX(), getRandomY(), 100);
+            Shape circle = ShapeFactory.getCircle(COLORS[i % COLORS.length]);
+            circle.draw(i, i * 2, 100 + i);
         }
     }
 
@@ -45,17 +45,5 @@ public class FlyWeightTest {
                 "Different colors must use different flyweights",
                 ShapeFactory.getCircle("Red"),
                 ShapeFactory.getCircle("Blue"));
-    }
-
-    private static String getRandomColor() {
-        return COLORS[(int) (Math.random() * COLORS.length)];
-    }
-
-    private static int getRandomX() {
-        return (int) (Math.random() * 100);
-    }
-
-    private static int getRandomY() {
-        return (int) (Math.random() * 100);
     }
 }

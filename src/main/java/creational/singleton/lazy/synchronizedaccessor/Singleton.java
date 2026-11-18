@@ -10,6 +10,9 @@ package creational.singleton.lazy.synchronizedaccessor;
  */
 public class Singleton {
 
+    // volatile не нужен: все обращения к instance идут через synchronized-метод,
+    // который даёт взаимное исключение и гарантирует видимость изменений (happens-before)
+    // между потоками.
     private static Singleton instance;
 
     private Singleton() {

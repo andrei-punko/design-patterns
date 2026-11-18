@@ -12,15 +12,15 @@ import org.junit.Test;
  * Представляет собой объект, позволяющий получить последовательный доступ к элементам объекта-агрегата без
  * использования описаний каждого из агрегированных объектов.
  */
-public class IteratorTest {
+public class CustomIteratorTest {
 
     private static final String[] NAMES = {"Robert", "John", "Julie", "Lora"};
 
-    private Iterator<String> iterator;
+    private CustomIterator<String> iterator;
 
     @Before
     public void setUp() {
-        iterator = new IteratorImpl<>(NAMES);
+        iterator = new CustomIteratorImpl<>(NAMES);
     }
 
     @Test

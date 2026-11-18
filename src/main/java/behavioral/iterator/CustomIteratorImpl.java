@@ -2,12 +2,12 @@ package behavioral.iterator;
 
 import java.util.NoSuchElementException;
 
-public class IteratorImpl<T> implements Iterator<T> {
+public class CustomIteratorImpl<T> implements CustomIterator<T> {
 
     private final T[] arr;
     private int index = 0;
 
-    public IteratorImpl(T[] arr) {
+    public CustomIteratorImpl(T[] arr) {
         this.arr = arr;
     }
 
