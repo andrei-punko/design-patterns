@@ -35,4 +35,9 @@ public class BuilderExampleTest {
         assertEquals("hot", pizza.getSauce());
         assertEquals("pepperoni+salami", pizza.getTopping());
     }
+
+    @Test(expected = IllegalStateException.class)
+    public void shouldRejectConstructionWithoutBuilder() {
+        new Waiter().constructPizza();
+    }
 }

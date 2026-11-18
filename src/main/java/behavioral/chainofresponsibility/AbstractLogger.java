@@ -15,6 +15,11 @@ public abstract class AbstractLogger {
         this.nextLogger = nextLogger;
     }
 
+    /**
+     * Writes the message if this logger's level allows it, then always delegates to the next logger.
+     * This is intentional: the same message may be written by several loggers in the chain
+     * (for example, to a file and to the console).
+     */
     public void logMessage(int level, String message) {
         if (this.level <= level) {
             write(message);

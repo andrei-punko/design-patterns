@@ -1,11 +1,11 @@
 package behavioral.observer;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class Subject {
 
-    private List<Observer> observers = new ArrayList<Observer>();
+    private final List<Observer> observers = new CopyOnWriteArrayList<>();
     private int state;
 
     public int getState() {
@@ -13,19 +13,24 @@ public class Subject {
     }
 
     public void setState(int state) {
+        if (this.state == state) {
+            return;
+        }
         this.state = state;
         notifyAllObservers();
     }
 
     public void attach(Observer observer) {
-        observers.add(observer);
+        if (!observers.contains(observer)) {
+            observers.add(observer);
+        }
     }
 
     public void detach(Observer observer) {
         observers.remove(observer);
     }
 
-    public void notifyAllObservers() {
+    private void notifyAllObservers() {
         for (Observer observer : observers) {
             observer.update();
         }

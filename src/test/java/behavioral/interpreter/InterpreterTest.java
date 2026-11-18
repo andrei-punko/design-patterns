@@ -1,5 +1,8 @@
 package behavioral.interpreter;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Test;
 
 /**
@@ -13,8 +16,18 @@ public class InterpreterTest {
         Expression isMale = getMaleExpression();
         Expression isMarriedWoman = getMarriedWomanExpression();
 
+        assertTrue("John must be recognized as male", isMale.interpret("John"));
+        assertTrue("Robert must be recognized as male", isMale.interpret("Robert"));
+        assertTrue("Married Julie must be recognized", isMarriedWoman.interpret("Married Julie"));
+        assertFalse("Alice must not be recognized as male", isMale.interpret("Alice"));
+
         System.out.println("John is male? " + isMale.interpret("John"));
         System.out.println("Julie is a married women? " + isMarriedWoman.interpret("Married Julie"));
+    }
+
+    @Test
+    public void shouldReturnFalseForNullContext() {
+        assertFalse(getMaleExpression().interpret(null));
     }
 
     // Rule: Robert and John are male

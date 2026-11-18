@@ -15,4 +15,9 @@ public class FrontControllerTest {
         frontController.dispatchRequest("HOME");
         frontController.dispatchRequest("STUDENT");
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void shouldRejectUnknownRequest() {
+        new FrontController().dispatchRequest("UNKNOWN");
+    }
 }

@@ -2,13 +2,14 @@ package structural.frontcontroller;
 
 public class FrontController {
 
-    private Dispatcher dispatcher;
+    private final Dispatcher dispatcher;
 
     public FrontController() {
         dispatcher = new Dispatcher();
     }
 
     private boolean isAuthenticUser() {
+        // Demo stub: a real implementation would check credentials here.
         System.out.println("User is authenticated successfully.");
         return true;
     }

@@ -5,7 +5,7 @@ package creational.builder;
  */
 public abstract class PizzaBuilder {
 
-    protected Pizza pizza;
+    protected Pizza pizza = new Pizza();
 
     public Pizza getPizza() {
         return pizza;

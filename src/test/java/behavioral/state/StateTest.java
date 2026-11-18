@@ -1,7 +1,6 @@
 package behavioral.state;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
@@ -15,11 +14,12 @@ public class StateTest {
     @Test
     public void shouldChangeStateWhenActionApplied() {
         Context context = new Context();
-        assertNull("Context has no state until an action is applied", context.getState());
+        assertTrue("Context must start in the initial state", context.getState() instanceof StartState);
+        assertEquals("Start State", context.getState().toString());
 
         StartState startState = new StartState();
         startState.doAction(context);
-        assertTrue("Start action must set a state", context.getState() instanceof StartState);
+        assertTrue("Start action must keep the start state", context.getState() instanceof StartState);
         assertEquals("Start State", context.getState().toString());
 
         StopState stopState = new StopState();

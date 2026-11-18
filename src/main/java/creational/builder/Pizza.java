@@ -32,4 +32,9 @@ public class Pizza {
     public String getTopping() {
         return topping;
     }
+
+    @Override
+    public String toString() {
+        return "Pizza{dough='" + dough + "', sauce='" + sauce + "', topping='" + topping + "'}";
+    }
 }

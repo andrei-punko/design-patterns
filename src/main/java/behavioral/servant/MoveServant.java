@@ -11,10 +11,15 @@ public class MoveServant {
     }
 
     public void moveBy(Movable serviced, int dx, int dy) {
+        Position current = serviced.getPosition();
+        if (current == null) {
+            throw new IllegalArgumentException("Cannot move an object without a position: " + serviced);
+        }
+
         System.out.println("Object " + serviced + " moved by (" + dx + ", " + dy + ")");
-        dx += serviced.getPosition().getXPosition();
-        dy += serviced.getPosition().getYPosition();
-        serviced.setPosition(new Position(dx, dy));
+        serviced.setPosition(new Position(
+                current.getXPosition() + dx,
+                current.getYPosition() + dy));
         System.out.println("Object " + serviced + " is here");
     }
 }

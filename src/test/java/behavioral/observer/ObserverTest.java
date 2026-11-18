@@ -43,6 +43,34 @@ public class ObserverTest {
         assertEquals("Detached observer must not be notified", 1, observer.updates);
     }
 
+    @Test
+    public void shouldIgnoreDuplicateAttachAndUnchangedState() {
+        Subject subject = new Subject();
+        CountingObserver observer = new CountingObserver(subject);
+        subject.attach(observer);
+        subject.attach(observer);
+
+        subject.setState(1);
+        assertEquals("Duplicate attach must not double-notify", 1, observer.updates);
+
+        subject.setState(1);
+        assertEquals("Unchanged state must not notify observers", 1, observer.updates);
+    }
+
+    @Test
+    public void shouldNotFailWhenObserverDetachesDuringNotification() {
+        Subject subject = new Subject();
+        SelfDetachingObserver first = new SelfDetachingObserver(subject);
+        SelfDetachingObserver second = new SelfDetachingObserver(subject);
+        subject.attach(first);
+        subject.attach(second);
+
+        subject.setState(1);
+
+        assertEquals(1, first.updates);
+        assertEquals("Every observer from the snapshot must still be notified", 1, second.updates);
+    }
+
     private static class CountingObserver extends Observer {
 
         private int updates;
@@ -54,6 +82,21 @@ public class ObserverTest {
         @Override
         public void update() {
             updates++;
+        }
+    }
+
+    private static class SelfDetachingObserver extends Observer {
+
+        private int updates;
+
+        SelfDetachingObserver(Subject subject) {
+            super(subject);
+        }
+
+        @Override
+        public void update() {
+            updates++;
+            subject.detach(this);
         }
     }
 }

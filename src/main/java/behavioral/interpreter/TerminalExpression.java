@@ -2,7 +2,7 @@ package behavioral.interpreter;
 
 public class TerminalExpression implements Expression {
 
-    private String data;
+    private final String data;
 
     public TerminalExpression(String data) {
         this.data = data;
@@ -10,10 +10,9 @@ public class TerminalExpression implements Expression {
 
     @Override
     public boolean interpret(String context) {
-
-        if (context.contains(data)) {
-            return true;
+        if (context == null || data == null) {
+            return false;
         }
-        return false;
+        return context.contains(data);
     }
 }

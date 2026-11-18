@@ -11,10 +11,12 @@ public class Dispatcher {
     }
 
     public void dispatch(String request) {
-        if (request.equalsIgnoreCase("STUDENT")) {
+        if ("STUDENT".equalsIgnoreCase(request)) {
             studentView.show();
-        } else {
+        } else if ("HOME".equalsIgnoreCase(request)) {
             homeView.show();
+        } else {
+            throw new IllegalArgumentException("Unknown request: " + request);
         }
     }
 }

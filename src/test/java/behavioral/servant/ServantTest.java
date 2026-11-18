@@ -24,4 +24,9 @@ public class ServantTest {
         servant.moveTo(rectangle, new Position(5, 9));
         servant.moveBy(triangle, 3, 6);
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void shouldRejectMoveByWithoutPosition() {
+        new MoveServant().moveBy(new Ellipse(), 1, 1);
+    }
 }
