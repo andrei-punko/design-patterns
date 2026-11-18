@@ -1,8 +1,8 @@
 # Design patterns
 
 ![Java CI with Maven](https://github.com/andrei-punko/design-patterns/workflows/Java%20CI%20with%20Maven/badge.svg)
-[![Coverage](.github/badges/jacoco.svg)](https://github.com/andrei-punko/design-patterns/actions/workflows/maven.yml)
-[![Branches](.github/badges/branches.svg)](https://github.com/andrei-punko/design-patterns/actions/workflows/maven.yml)
+[![Coverage](.github/badges/jacoco.svg)](https://github.com/andrei-punko/design-patterns/actions/workflows/test-coverage.yml)
+[![Branches](.github/badges/branches.svg)](https://github.com/andrei-punko/design-patterns/actions/workflows/test-coverage.yml)
 
 ## Prerequisites
 
